@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood", "OdeToFood.csproj", "{F8E3EB7C-472E-4C82-BA61-B304567022DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ECD57CAD-3DE6-4451-9350-94B8B36CB3E0} = {ECD57CAD-3DE6-4451-9350-94B8B36CB3E0}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Core", "..\OdeToFood.Core\OdeToFood.Core.csproj", "{ECD57CAD-3DE6-4451-9350-94B8B36CB3E0}"
 EndProject

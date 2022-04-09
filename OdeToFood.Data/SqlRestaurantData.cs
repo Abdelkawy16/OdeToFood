@@ -13,12 +13,6 @@ namespace OdeToFood.Data
         public SqlRestaurantData(OdeToFoodDbContext db)
         {
             this.db = db;
-            //db.Restaurants.AddRange(new List<Restaurant>()
-            //{
-            //    new Restaurant{Id = 1, Name ="Scott's Pizza", Location ="MaryLand", Cusinie = CusinieType.Italian},
-            //    new Restaurant{Id = 2, Name ="Cinnamon Club", Location ="London", Cusinie = CusinieType.Indian},
-            //    new Restaurant{Id = 3, Name ="La Costa", Location ="CA", Cusinie = CusinieType.Mexican}
-            //});
         }
         public Restaurant Add(Restaurant restaurant)
         {
@@ -42,6 +36,11 @@ namespace OdeToFood.Data
         public Restaurant GetById(int id)
         {
             return db.Restaurants.Find(id);
+        }
+
+        public int GetCountOfRestaurants()
+        {
+            return db.Restaurants.Count();
         }
 
         public IEnumerable<Restaurant> GetrestaurantsByName(string name)
