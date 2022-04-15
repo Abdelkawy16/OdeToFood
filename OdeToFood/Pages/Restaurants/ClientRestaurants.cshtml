@@ -1,0 +1,36 @@
+﻿@page
+@model OdeToFood.Pages.Restaurants.ClientRestaurantsModel
+@{
+    ViewData["Title"] = "ClientRestaurants";
+}
+
+<h2>Client Restaurants</h2>
+<table class="table" id="restaurants">
+
+</table>
+@section Scripts{
+    <environment include="Development">
+        <script src="~/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/node_modules/datatables.net-dt/js/dataTables.dataTables.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/node_modules/datatables.net-dt/css/jquery.dataTables.csss"/>
+    </environment>
+    <environment include="Development">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+    </environment>
+   <script>
+        $(()=>{
+            var cusinies = ["Unknown", "Mexican", "Italian", "Indian"]
+            $.ajax("/api/restaurants/", {method:"get"})
+            .then((response)=>{
+                $("#restaurants").dataTable({
+                data: response,
+                columns:[
+                    {"data": "name"},
+                    {"data": "location"},
+                    {"data": "cusinie", "render": (data)=>cusinies[data]}
+                ]
+            })});
+        });
+    </script>
+}
